@@ -1,0 +1,22 @@
+{
+  "name": "nz-education-data",
+  "version": "1.0.0",
+  "description": "New Zealand education data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "import": "node ./tools/import.js"
+  },
+  "keywords": [
+    "New",
+    "Zealand",
+    "Education",
+    "Data"
+  ],
+  "author": "David Craig",
+  "dependencies": {
+    "hapi": "^8.4.0",
+    "request": "^2.55.0",
+    "xlsx": "^0.8.0"
+  }
+}
