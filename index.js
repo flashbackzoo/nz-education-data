@@ -1,13 +1,14 @@
 var Hapi = require('hapi');
 
 var server = new Hapi.Server();
+
 server.connection({ port: 3000 });
 
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('New Zealand education data. Visit ' + server.info.uri + '/api');
+        reply.view('index');
     }
 });
 
@@ -17,6 +18,14 @@ server.route({
     handler: function (request, reply) {
         reply.file('data.json');
     }
+});
+
+server.views({
+    engines: {
+        jade: require('jade')
+    },
+    relativeTo: __dirname,
+    path: './views'
 });
 
 server.start(function () {
