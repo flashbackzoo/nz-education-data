@@ -16,7 +16,16 @@ server.route({
     method: 'GET',
     path: '/api',
     handler: function (request, reply) {
-        reply.file('data.json');
+        reply.file('data.json').header('Content-Type', 'application/json');
+    },
+    config: {
+        cors: {
+            methods: ['GET']
+        },
+        cache: {
+            expiresIn: 60 * 60 * 24 * 7, // 1 week
+            privacy: 'private'
+        }
     }
 });
 
