@@ -12,6 +12,7 @@ writer.on('finish', function () {
     var workbook = XLSX.readFile(outputXlsxFile),
         schools,
         school,
+        enrolments,
         output = {};
 
     for (var sheetName in workbook.Sheets) {
@@ -28,10 +29,12 @@ writer.on('finish', function () {
             for (var columnName in schools[i]) {
                 // Check if we're dealing with a subject.
                 if (columnName !== 'school id' && columnName !== 'school name') {
-                    if (schools[i][columnName] === ' ') {
+                    enrolments = parseInt(schools[i][columnName].replace(',', ''), 10); // remove commas and cast to number.
+
+                    if (isNaN(enrolments)) {
                         school.subjects[columnName] = null;
                     } else {
-                        school.subjects[columnName] = parseInt(schools[i][columnName], 10);
+                        school.subjects[columnName] = enrolments;
                     }
                 }
             }
