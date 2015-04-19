@@ -14,6 +14,18 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/public/{path*}',
+    handler: {
+        directory: {
+            path: 'public',
+            listing: false,
+            index: false
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/api',
     handler: function (request, reply) {
         reply.file('data.json').header('Content-Type', 'application/json');
