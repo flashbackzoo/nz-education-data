@@ -1,8 +1,12 @@
-var Hapi = require('hapi');
+var Hapi = require('hapi'),
+    secrets = require('./secrets');
 
 var server = new Hapi.Server();
 
-server.connection({ port: 3000 });
+server.connection({
+    host: secrets.privateAddress,
+    port: 3000
+});
 
 server.route({
     method: 'GET',
