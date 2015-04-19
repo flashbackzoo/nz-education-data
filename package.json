@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "New Zealand education data",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flashbackzoo/nz-education-data.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flashbackzoo/nz-education-data/issues"
+  },
+  "homepage": "https://github.com/flashbackzoo/nz-education-data",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "import": "node ./tools/import.js"
