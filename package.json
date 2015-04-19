@@ -13,7 +13,10 @@
   "homepage": "https://github.com/flashbackzoo/nz-education-data",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "import": "node ./tools/import.js"
+    "import": "node ./tools/import.js",
+    "build:css:prod": "cp bower_components/chartist/dist/chartist.min.css public/css/chartist.min.css",
+    "build:js:prod": "cp bower_components/chartist/dist/chartist.min.js public/js/chartist.min.js && cp bower_components/jquery/dist/jquery.min.js public/js/jquery.min.js && cp bower_components/underscore/underscore-min.js public/js/underscore.min.js",
+    "build:all:prod": "npm run build:css:prod && npm run build:js:prod"
   },
   "keywords": [
     "New",

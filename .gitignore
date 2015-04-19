@@ -1,3 +1,8 @@
 node_modules/
+bower_components/
+public/css/chartist.min.css
+public/js/chartist.min.js
+public/js/jquery.min.js
+public/js/underscore.min.js
 data.json
 secrets.js

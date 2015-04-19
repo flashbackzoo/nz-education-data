@@ -5,6 +5,12 @@ html(lang='en')
     title New Zealand education data
     link(href='/public/css/bootstrap.min.css', rel='stylesheet')
     link(href='/public/css/bootstrap-theme.min.css', rel='stylesheet')
+    link(href='/public/css/chartist.min.css', rel='stylesheet')
+    link(href='/public/css/main.css', rel='stylesheet')
+    script(src='/public/js/chartist.min.js')
+    script(src='/public/js/jquery.min.js')
+    script(src='/public/js/underscore.min.js')
+    script(src='/public/js/main.js')
 
   body
     div.container
@@ -28,3 +34,16 @@ html(lang='en')
                 p
                     | For more information contact 
                     a(href='mailto:david@davidcraig.co.nz') david@davidcraig.co.nz
+        div.row
+            div.col-xs-12
+                h2 Students enrolled in technology subjects
+                p This is an example chart showing total enrolments in technology subjects across New Zealand from 1996 to 2014.
+                div.ct-chart.ct-perfect-fourth
+                p 
+                    | Please note that figures prior to 2003 may not be directly comparable to 2003 onwards due to a change in data collection methodology.
+                    br
+                    | Students who take multiple subjects are counted once in every subject they are enrolled, summing across subjects will double count students.
+                    br
+                    | Schools that offer multiple subjects and are counted once for every subject they have students enrolled in.
+                    br
+                    | Source: Indicators and Reporting Unit, Ministry of Education.
