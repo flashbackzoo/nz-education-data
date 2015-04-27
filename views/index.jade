@@ -1,52 +1,45 @@
-doctype html
-html(lang='en')
+extends ./layout.jade
 
-  head
-    title New Zealand education data
-    link(href='/public/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/public/css/bootstrap-theme.min.css', rel='stylesheet')
+block extraStyles
     link(href='/public/css/chartist.min.css', rel='stylesheet')
-    link(href='/public/css/main.css', rel='stylesheet')
+
+block extraScripts
     script(src='/public/js/chartist.min.js')
-    script(src='/public/js/jquery.min.js')
-    script(src='/public/js/underscore.min.js')
-    script(src='/public/js/main.js')
 
-  body
-    div.container
-        div.row
-            div.col-xs-12
-                h1 New Zealand education data
+block content
+    div.row
+        div.col-xs-12
+            h1 New Zealand education data
 
-                p This site provides APIs to vairous New Zealand education data.
+            p This site provides APIs to vairous New Zealand education data.
 
-                p
-                    | The only API currently offered is for secondary technology subjects by school.
-                    | The 
-                    a(href='http://www.educationcounts.govt.nz/__data/assets/excel_doc/0008/144188/Secondary-Technology-By-School-1996-2014.xls') canonical data source
-                    |  for the API has been cleaned up to make exposing the data as JSON possible. Here is the 
-                    a(href='https://www.dropbox.com/s/9zdkafltupc2gq8/Secondary-Technology-By-School-1996-2014.xlsx?dl=1') updated spread sheet
-                    | .
-                p
-                    | Here is the 
-                    a(href='/api') JSON formatted data
-                    | .
-                p
-                    | For more information contact 
-                    a(href='mailto:david@davidcraig.co.nz') david@davidcraig.co.nz
-        div.row
-            div.col-xs-12
-                h2 Students enrolled in technology subjects
-                p 
-                    | This is an example chart showing total enrolments in technology subjects across New Zealand from 1996 to 2014, using 
-                    a(href='/api') data provided by educationdata.nz
-                    | .
-                div.ct-chart.ct-perfect-fourth
-                p 
-                    | Please note that figures prior to 2003 may not be directly comparable to 2003 onwards due to a change in data collection methodology.
-                    br
-                    | Students who take multiple subjects are counted once in every subject they are enrolled, summing across subjects will double count students.
-                    br
-                    | Schools that offer multiple subjects and are counted once for every subject they have students enrolled in.
-                    br
-                    | Source: Indicators and Reporting Unit, Ministry of Education.
+            p
+                | The only API currently offered is for secondary technology subjects by school.
+                | The 
+                a(href='http://www.educationcounts.govt.nz/__data/assets/excel_doc/0008/144188/Secondary-Technology-By-School-1996-2014.xls') canonical data source
+                |  for the API has been cleaned up to make exposing the data as JSON possible. Here is the 
+                a(href='https://www.dropbox.com/s/9zdkafltupc2gq8/Secondary-Technology-By-School-1996-2014.xlsx?dl=1') updated spread sheet
+                | .
+            p
+                | Here is the 
+                a(href='/api') JSON formatted data
+                | .
+            p
+                | For more information contact 
+                a(href='mailto:david@davidcraig.co.nz') david@davidcraig.co.nz
+    div.row
+        div.col-xs-12
+            h2 Students enrolled in technology subjects
+            p 
+                | This is an example chart showing total enrolments in technology subjects across New Zealand from 1996 to 2014, using 
+                a(href='/api') data provided by educationdata.nz
+                | .
+            div.ct-chart.ct-perfect-fourth
+            p 
+                | Please note that figures prior to 2003 may not be directly comparable to 2003 onwards due to a change in data collection methodology.
+                br
+                | Students who take multiple subjects are counted once in every subject they are enrolled, summing across subjects will double count students.
+                br
+                | Schools that offer multiple subjects and are counted once for every subject they have students enrolled in.
+                br
+                | Source: Indicators and Reporting Unit, Ministry of Education.
