@@ -6,3 +6,4 @@ public/js/jquery.min.js
 public/js/underscore.min.js
 data.json
 secrets.js
+npm-debug.log
