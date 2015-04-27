@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+
+  head
+    title New Zealand education data
+
+    link(href='/public/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/css/bootstrap-theme.min.css', rel='stylesheet')
+    link(href='/public/css/main.css', rel='stylesheet')
+    block extraStyles
+
+    script(src='/public/js/jquery.min.js')
+    script(src='/public/js/underscore.min.js')
+    script(src='/public/js/main.js')
+    block extraScripts
+
+  body
+    div.container
+        block content
