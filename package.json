@@ -14,6 +14,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "import": "node ./tools/import.js",
+    "deploy:local": "node ./tools/deploy.js",
+    "deploy:prod": "npm install && npm run prune && npm run import && pm2 restart index.js",
+    "prune": "npm prune && bower prune",
     "build:css:prod": "cp bower_components/chartist/dist/chartist.min.css public/css/chartist.min.css",
     "build:js:prod": "cp bower_components/chartist/dist/chartist.min.js public/js/chartist.min.js && cp bower_components/jquery/dist/jquery.min.js public/js/jquery.min.js && cp bower_components/underscore/underscore-min.js public/js/underscore.min.js",
     "build:all:prod": "npm run build:css:prod && npm run build:js:prod"
@@ -26,9 +29,9 @@
   ],
   "author": "David Craig",
   "dependencies": {
-    "hapi": "^8.4.0",
-    "jade": "^1.9.2",
-    "request": "^2.55.0",
-    "xlsx": "^0.8.0"
+    "hapi": "8.4.0",
+    "jade": "1.9.2",
+    "request": "2.55.0",
+    "xlsx": "0.8.0"
   }
 }
