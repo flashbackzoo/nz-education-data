@@ -32,6 +32,14 @@ server.route({
 
 server.route({
     method: 'GET',
+    path: '/examples',
+    handler: function (request, reply) {
+        reply.view('examples');
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/api',
     handler: function (request, reply) {
         reply.file('data.json').header('Content-Type', 'application/json');

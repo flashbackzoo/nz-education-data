@@ -15,5 +15,15 @@ html(lang='en')
     block extraScripts
 
   body
+    nav.navbar.navbar-default
+        div.container
+            div.navbar-header
+                p.navbar-brand educationdata.nz
+                ul.nav.navbar-nav
+                    li
+                        a(href='/') Home
+                    li
+                        a(href='/examples') Examples
+
     div.container
         block content
