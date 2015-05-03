@@ -10,12 +10,4 @@ constants.API_ROUTE_CONFIG = {
     }
 };
 
-constants.VIEW_OPTIONS = {
-    engines: {
-        jade: require('jade')
-    },
-    relativeTo: __dirname,
-    path: './views'
-};
-
 module.exports = constants;

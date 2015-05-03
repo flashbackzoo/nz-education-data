@@ -12,16 +12,15 @@
   },
   "homepage": "https://github.com/flashbackzoo/nz-education-data",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lab -a code",
     "import": "node ./tools/import.js",
-    "deploy": "node ./tools/deploy.js",
+    "deploy": "npm run test && node ./tools/deploy.js",
     "build:css:prod": "cp bower_components/chartist/dist/chartist.min.css public/css/chartist.min.css",
     "build:js:prod": "cp bower_components/chartist/dist/chartist.min.js public/js/chartist.min.js && cp bower_components/jquery/dist/jquery.min.js public/js/jquery.min.js && cp bower_components/underscore/underscore-min.js public/js/underscore.min.js",
     "build:all:prod": "npm run build:css:prod && npm run build:js:prod"
   },
   "keywords": [
-    "New",
-    "Zealand",
+    "New Zealand",
     "Education",
     "Data"
   ],
@@ -31,5 +30,9 @@
     "jade": "1.9.2",
     "request": "2.55.0",
     "xlsx": "0.8.0"
+  },
+  "devDependencies": {
+    "code": "1.4.0",
+    "lab": "5.8.0"
   }
 }

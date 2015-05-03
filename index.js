@@ -1,73 +1,42 @@
 var Hapi = require('hapi'),
-    fs = require('fs'),
-    constants = require('./constants'),
     secrets = require('./secrets');
 
 var server = new Hapi.Server();
 
 server.connection({
     host: secrets.privateAddress,
-    port: 3000
-});
-
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply.view('index');
+    port: 3000,
+    router: {
+        stripTrailingSlash: true
     }
 });
 
-server.route({
-    method: 'GET',
-    path: '/public/{path*}',
-    handler: {
-        directory: {
-            path: 'public',
-            listing: false,
-            index: false
-        }
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/examples',
-    handler: function (request, reply) {
-        reply.view('examples');
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/api',
-    handler: function (request, reply) {
-        reply.file('data.json').header('Content-Type', 'application/json');
+server.views({
+    engines: {
+        jade: require('jade')
     },
-    config: constants.API_ROUTE_CONFIG
+    relativeTo: __dirname,
+    path: './views'
 });
 
-server.route({
-    method: 'GET',
-    path: '/api/year/{id}',
-    handler: function (request, reply) {
-        fs.readFile('./data.json', 'utf8', function (err, data) {
-            var response;
-
-            if (err) {
-                console.log(err);
-                return reply.view('error');
-            }
-
-            response = JSON.parse(data)[request.params.id] || {};
-
-            reply(response).header('Content-Type', 'application/json');
-        });
+server.register([
+    {
+        register: require('./routes/public')
     },
-    config: constants.API_ROUTE_CONFIG
+    {
+        register: require('./routes/home')
+    },
+    {
+        register: require('./routes/examples')
+    },
+    {
+        register: require('./routes/api')
+    }
+], function (err) {
+    if (err) {
+        console.log('Failed to load plugin:', err);
+    }
 });
-
-server.views(constants.VIEW_OPTIONS);
 
 server.start(function () {
     console.log('Server running at:', server.info.uri);
